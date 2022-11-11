@@ -1,0 +1,21 @@
+nav {
+  display: flex;
+  width: 100%;
+  background-color: green;
+}
+
+/*  - List */
+ul {
+  display: flex;
+  width: max-content;
+}
+
+li {
+  width: max-content;
+  margin: 20px;
+}
+
+a {
+  display: flex;
+  width: 100px;
+}
