@@ -3,7 +3,9 @@ body {
 }
 
 .container {
+  padding: 20px;
   min-height: 70vh;
+  box-sizing: border-box;
 }
 
 * {
@@ -25,4 +27,73 @@ a:hover {
 
 .logo h1 {
   color: rgb(66, 103, 117);
+}
+
+form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 auto;
+
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+/* * FORM */
+.form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.inputArea {
+  width: 100%;
+  background-color: rgb(102, 157, 179);
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+form input,
+textarea {
+  margin: 5px 0;
+}
+
+input[type="submit"] {
+  width: 60%;
+  height: 50px;
+  margin: 20px 0;
+
+  border: 2px solid transparent;
+  border-radius: 5px;
+
+  background-color: #426775;
+  color: #ffffff;
+
+  font-weight: bold;
+  font-size: 20px;
+
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+input[type="submit"]:hover {
+  border: 2px solid #426775;
+  border-radius: 5px;
+
+  background-color: transparent;
+  color: #426775;
+
+  transform: translate(-2px, 2px);
+}
+
+.errorMessage p {
+  color: red;
+
+  font-weight: bold;
+
+  padding-left: 10px;
+  border-left: 5px solid red;
 }
