@@ -40,6 +40,11 @@ form {
   border-radius: 10px;
 }
 
+/* * TITLE */
+span {
+  color: #426775;
+}
+
 /* * FORM */
 .form-group {
   width: 100%;
