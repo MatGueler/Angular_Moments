@@ -10,6 +10,7 @@ import { Moment } from 'src/types/momentType';
 export class MomentFormComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<Moment>();
   @Input() buttonText!: string;
+  @Input() momentData: Moment | null = null;
 
   momentForm!: FormGroup;
 
@@ -17,10 +18,15 @@ export class MomentFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.momentForm = new FormGroup({
-      id: new FormControl(''),
-      title: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
-      image: new FormControl(''),
+      id: new FormControl(this.momentData ? this.momentData.id : ''),
+      title: new FormControl(this.momentData ? this.momentData.title : '', [
+        Validators.required,
+      ]),
+      description: new FormControl(
+        this.momentData ? this.momentData.description : '',
+        [Validators.required]
+      ),
+      image: new FormControl(this.momentData ? this.momentData.image : ''),
     });
   }
 

@@ -25,7 +25,7 @@ a:hover {
 }
 
 .logo h1 {
-  color: rgb(66, 103, 117);
+  color: #426775;
 }
 
 form {
@@ -62,6 +62,7 @@ span {
 
 form input,
 textarea {
+  min-height: 20px;
   margin: 5px 0;
 }
 

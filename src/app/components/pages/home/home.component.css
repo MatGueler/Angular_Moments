@@ -13,8 +13,15 @@
   display: flex;
   flex-wrap: wrap;
   max-width: 80%;
+
+  padding: 20px;
   margin: 0 auto;
+
   justify-content: space-between;
+
+  background-image: url("https://m.media-amazon.com/images/I/41r+28smXeL._AC_.jpg");
+
+  box-sizing: border-box;
 }
 
 .moment {
@@ -25,6 +32,9 @@
 
 .moment img {
   width: 100%;
+  border-radius: 5px;
+
+  border: 5px solid #426775;
   margin-bottom: 1em;
 }
 
@@ -46,7 +56,6 @@ a {
 a:hover {
   background-color: #efefef;
 }
-
 
 /* * SEARCH BOX */
 .search-container {
