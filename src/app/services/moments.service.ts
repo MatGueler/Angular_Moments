@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Moment } from 'src/types/momentType';
+import { Response } from 'src/types/Response';
 
 @Injectable({
   providedIn: 'root',
@@ -14,5 +16,9 @@ export class MomentsService {
 
   createMoment(formData: FormData): Observable<FormData> {
     return this.http.post<FormData>(this.apiUrl, formData);
+  }
+
+  getMoments(): Observable<Response<Moment[]>> {
+    return this.http.get<Response<Moment[]>>(this.apiUrl);
   }
 }
