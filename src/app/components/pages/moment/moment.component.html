@@ -20,6 +20,65 @@
   </div>
 
   <div class="comments">
-    <h3>Comentários (0):</h3>
+    <h3>
+      Comentários ({{
+        moment.comments!.length > 0 ? moment.comments!.length : 0
+      }}):
+    </h3>
+
+    <div *ngIf="moment.comments!.length > 0; else noComments">
+      <div class="comment-container" *ngFor="let comment of moment.comments">
+        <p class="comment">{{ comment.text }}</p>
+        <p class="author"><span>Por:</span> {{ comment.username }}</p>
+      </div>
+    </div>
+    <ng-template #noComments>
+      <p>Não há comentários</p>
+    </ng-template>
+
+    <div class="comment-button" (click)="newComment = !newComment">
+      <h3>Deixe seu comentário!</h3>
+      <button><fa-icon [icon]="faCommenting"></fa-icon></button>
+    </div>
+
+    <div *ngIf="newComment" class="comment-form">
+      <div class="comment-form">
+        <form
+          [formGroup]="commentForm"
+          #formDir="ngForm"
+          (ngSubmit)="onSubmit(formDir)"
+        >
+          <div class="form-group">
+            <label for="text">Comentário:</label>
+            <textarea
+              placeholder="O que você quer comentar?"
+              formControlName="text"
+              required
+            ></textarea>
+            <div *ngIf="text.invalid && formDir.submitted" class="errorMessage">
+              <p *ngIf="text.errors?.['required']">O título é obrigatório!</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="username">Nome:</label>
+            <input
+              type="text"
+              placeholder="Qual o seu nome?"
+              formControlName="username"
+              required
+            />
+            <div
+              *ngIf="username.invalid && formDir.submitted"
+              class="errorMessage"
+            >
+              <p *ngIf="username.errors?.['required']">
+                O título é obrigatório!
+              </p>
+            </div>
+          </div>
+          <input type="submit" value="Comentar!" />
+        </form>
+      </div>
+    </div>
   </div>
 </div>
